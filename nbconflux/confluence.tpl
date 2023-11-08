@@ -11,9 +11,7 @@
 {%- endblock header %}
 
 {% block codecell %}
-<p class="border-box-sizing code_cell rendered">
 {{ super() }}
-</p>
 {%- endblock codecell %}
 
 {% block input_group -%}
@@ -57,11 +55,11 @@ In&nbsp;[&nbsp;]:
 {% endblock output_prompt %}
 
 {% block input %}
-<div class="inner_cell">
-    <div class="input_area">
-{{ cell.source | highlight_code(metadata=cell.metadata) }}
-</div>
-</div>
+<ac:structured-macro ac:name="code">
+ <ac:plain-text-body>
+   <![CDATA[{{ cell.source }}]]>
+  </ac:plain-text-body>
+</ac:structured-macro>
 {%- endblock input %}
 
 {% block output %}

@@ -204,6 +204,7 @@ class ConfluenceExporter(HTMLExporter):
         title = content['title']
 
         # Update the page with the new content.
+        # print("HTML body %*%:\n", body)
         resp = requests.put('{server}/rest/api/content/{page_id}'.format(server=self.server,
                                                                          page_id=page_id),
                             json={
@@ -281,7 +282,7 @@ class ConfluenceExporter(HTMLExporter):
         XHTML compliant for compatibility with Confluence storage format.
         """
         renderer = ConfluenceMarkdownRenderer(escape=False,
-                                              use_xhtml=True,
+                                              #use_xhtml=True,
                                               anchor_link_text=self.anchor_link_text)
         return MarkdownWithMath(renderer=renderer).render(source)
 
